@@ -1,7 +1,7 @@
 import './App.css';
 import {useState} from "react";
 import Form from './components/Form';
-import todoList from './components/todoList';
+import TodoList from './components/todoList';
 
 
 
@@ -17,7 +17,7 @@ function App() {
   const handleSubmit = (e)=>{
     e.preventDefault();
     if(editId){
-      const editTodo = todoItems.find(i=>i.id == editId)
+      const editTodo = todoItems.find(i=>i.id === editId)
       const updatedTodos = todoItems.map(t=>t.id===editTodo.id?(t={id:t.id,todo}):{id:t.id,todo:t.todo})
       settodoItems(updatedTodos);
       seteditId(0)
@@ -56,7 +56,7 @@ function App() {
             todo = {todo}
           />
 
-          <todoList 
+          <TodoList 
             handleEdit={handleEdit}
             handleDel={handleDel}
             todoItems={todoItems}
